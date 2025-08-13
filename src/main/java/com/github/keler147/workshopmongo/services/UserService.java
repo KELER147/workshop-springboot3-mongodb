@@ -1,5 +1,6 @@
 package com.github.keler147.workshopmongo.services;
 import com.github.keler147.workshopmongo.domain.User;
+import com.github.keler147.workshopmongo.dto.UserDTO;
 import com.github.keler147.workshopmongo.repository.UserRepository;
 import com.github.keler147.workshopmongo.services.exception.ObjectNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,4 +25,13 @@ public class UserService {
         }
         return user.get();
     }
+
+    public User insert(User user) {
+        return repo.insert(user);
+    }
+
+    public User fromDTO(UserDTO userDTO) {
+        return new User(userDTO.getId(), userDTO.getName(), userDTO.getEmail());
+    }
+
 }
