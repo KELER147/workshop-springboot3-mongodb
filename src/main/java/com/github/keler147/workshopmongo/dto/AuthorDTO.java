@@ -1,9 +1,13 @@
 package com.github.keler147.workshopmongo.dto;
 
 import com.github.keler147.workshopmongo.domain.User;
+import lombok.Getter;
+import lombok.Setter;
 
 import java.io.Serializable;
 
+@Getter
+@Setter
 public class AuthorDTO implements Serializable {
 
     private String id;
@@ -14,18 +18,5 @@ public class AuthorDTO implements Serializable {
     public AuthorDTO(User author) {
         id = author.getId();
         name = author.getName();
-    }
-
-    public String getId() {
-        return id;
-    }
-    public void setId(String id) {
-        this.id = id;
-    }
-    public String getName() {
-        return name;
-    }
-    public void setName(String name) {
-        this.name = name;
     }
 }
