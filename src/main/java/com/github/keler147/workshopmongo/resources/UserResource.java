@@ -1,4 +1,5 @@
 package com.github.keler147.workshopmongo.resources;
+import com.github.keler147.workshopmongo.domain.Post;
 import com.github.keler147.workshopmongo.domain.User;
 import com.github.keler147.workshopmongo.dto.UserDTO;
 import com.github.keler147.workshopmongo.services.UserService;
@@ -52,6 +53,9 @@ public class UserResource {
         return ResponseEntity.noContent().build();
     }
 
-
-
+    @RequestMapping(value = "/{id}/posts", method = RequestMethod.GET)
+    public ResponseEntity<List<Post>> findPosts(@PathVariable String id) {
+        User user = service.findById(id);
+        return ResponseEntity.ok().body(user.getPosts());
+    }
 }
